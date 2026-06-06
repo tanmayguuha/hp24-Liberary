@@ -1,0 +1,37 @@
+{
+  "name": "@idemkit/express",
+  "version": "0.1.0",
+  "description": "Express middleware that makes any route idempotent via the Idempotency-Key header, powered by @idemkit/core.",
+  "keywords": ["idempotency", "express", "middleware", "idempotency-key", "typescript"],
+  "license": "MIT",
+  "author": "Kapil",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": { "types": "./dist/index.d.ts", "default": "./dist/index.js" },
+      "require": { "types": "./dist/index.d.cts", "default": "./dist/index.cjs" }
+    }
+  },
+  "files": ["dist", "README.md"],
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@idemkit/core": "workspace:^"
+  },
+  "peerDependencies": {
+    "express": "^4.0.0 || ^5.0.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/supertest": "^6.0.2",
+    "express": "^5.0.0",
+    "supertest": "^7.0.0"
+  },
+  "publishConfig": { "access": "public", "provenance": true }
+}

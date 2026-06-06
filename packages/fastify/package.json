@@ -1,0 +1,35 @@
+{
+  "name": "@idemkit/fastify",
+  "version": "0.1.0",
+  "description": "Fastify plugin adding Idempotency-Key support to your routes, powered by @idemkit/core.",
+  "keywords": ["idempotency", "fastify", "plugin", "idempotency-key", "typescript"],
+  "license": "MIT",
+  "author": "Kapil",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": { "types": "./dist/index.d.ts", "default": "./dist/index.js" },
+      "require": { "types": "./dist/index.d.cts", "default": "./dist/index.cjs" }
+    }
+  },
+  "files": ["dist", "README.md"],
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@idemkit/core": "workspace:^",
+    "fastify-plugin": "^5.0.1"
+  },
+  "peerDependencies": {
+    "fastify": "^4.0.0 || ^5.0.0"
+  },
+  "devDependencies": {
+    "fastify": "^5.1.0"
+  },
+  "publishConfig": { "access": "public", "provenance": true }
+}

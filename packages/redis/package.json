@@ -1,0 +1,34 @@
+{
+  "name": "@idemkit/redis",
+  "version": "0.1.0",
+  "description": "Production-grade Redis storage adapter for idemkit, with atomic SET NX PX locks for cross-instance idempotency.",
+  "keywords": ["idempotency", "redis", "ioredis", "idempotency-key", "store", "lock"],
+  "license": "MIT",
+  "author": "Kapil",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": { "types": "./dist/index.d.ts", "default": "./dist/index.js" },
+      "require": { "types": "./dist/index.d.cts", "default": "./dist/index.cjs" }
+    }
+  },
+  "files": ["dist", "README.md"],
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@idemkit/core": "workspace:^"
+  },
+  "peerDependencies": {
+    "ioredis": "^5.0.0"
+  },
+  "devDependencies": {
+    "ioredis": "^5.4.1"
+  },
+  "publishConfig": { "access": "public", "provenance": true }
+}
