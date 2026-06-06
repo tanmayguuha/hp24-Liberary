@@ -1,5 +1,11 @@
 # hp24-ui
 
+## 0.5.1
+
+### Patch Changes
+
+- Docs: document `CommonTable` in the README (usage, props table, and the `Column` definition) alongside `Dropdown`.
+
 ## 0.5.0
 
 ### Minor Changes

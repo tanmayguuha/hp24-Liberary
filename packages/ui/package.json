@@ -1,6 +1,6 @@
 {
   "name": "hp24-ui",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "A zero-config, prop-driven Dropdown for React — single/multi-select, searchable, accessible. No CSS import, no Tailwind setup; works in React, Next.js, and any bundler.",
   "keywords": [
     "react",
