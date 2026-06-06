@@ -1,5 +1,17 @@
 # hp24-ui
 
+## 0.3.1
+
+### Patch Changes
+
+- Docs: rewrite the README to be beginner-friendly — features list, complete copy-paste examples (controlled & uncontrolled), a clear props table, and the option shape.
+
+## 0.3.0
+
+### Minor Changes
+
+- **Breaking:** scope the library down to just the `Dropdown` (plus the `ThemeProvider`/`useTheme` theming layer). All other components (Button, Card, Table, Tabs, Modal, etc.) have been removed for now and will be reintroduced one at a time. If you depend on those, pin to `0.2.x`.
+
 ## 0.2.1
 
 ### Patch Changes

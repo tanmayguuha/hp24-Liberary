@@ -1,6 +1,6 @@
 import { type ReactNode, createContext, createElement, useContext } from 'react';
 
-/** Semantic intents shared across components (Button, Badge, Alert, …). */
+/** Semantic intent colors used across the theme (primary highlights, danger/invalid states, …). */
 export type Intent =
   | 'primary'
   | 'secondary'

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 // Imports straight from source — edit ../src/Dropdown.tsx and the page hot-reloads.
-import { Dropdown, FormField, Stack, ThemeProvider } from '../src/index.js';
+import { Dropdown, ThemeProvider } from '../src/index.js';
 
 const COLORS = [
   { label: 'Red', value: 'r' },
@@ -30,10 +30,11 @@ function Section({ title, children }: { title: string; children: React.ReactNode
         border: '1px solid #e2e8f0',
         borderRadius: 12,
         padding: 20,
+        marginBottom: 16,
         boxShadow: '0 1px 2px rgba(15,23,42,0.06)',
       }}
     >
-      <h3 style={{ margin: '0 0 4px', fontSize: 14, color: '#0f172a' }}>{title}</h3>
+      <h3 style={{ margin: '0 0 8px', fontSize: 14, color: '#0f172a' }}>{title}</h3>
       {children}
     </div>
   );
@@ -51,83 +52,62 @@ function Demo() {
         Live-bound to <code>../src/Dropdown.tsx</code>. Edit the component and this page reloads.
       </p>
 
-      <Stack gap={4}>
-        <Section title="Single select (clearable)">
-          <Dropdown
-            options={COLORS}
-            placeholder="Pick a color"
-            value={single}
-            onChange={setSingle}
-          />
-          <pre style={{ margin: '8px 0 0', color: '#64748b' }}>value: {JSON.stringify(single)}</pre>
-        </Section>
+      <Section title="Single select (clearable)">
+        <Dropdown options={COLORS} placeholder="Pick a color" value={single} onChange={setSingle} />
+        <pre style={{ margin: '8px 0 0', color: '#64748b' }}>value: {JSON.stringify(single)}</pre>
+      </Section>
 
-        <Section title="Multi select (chips)">
-          <Dropdown
-            multiple
-            options={COUNTRIES}
-            value={multi}
-            onChange={setMulti}
-            placeholder="Pick countries"
-          />
-          <pre style={{ margin: '8px 0 0', color: '#64748b' }}>value: {JSON.stringify(multi)}</pre>
-        </Section>
+      <Section title="Multi select (chips)">
+        <Dropdown
+          multiple
+          options={COUNTRIES}
+          value={multi}
+          onChange={setMulti}
+          placeholder="Pick countries"
+        />
+        <pre style={{ margin: '8px 0 0', color: '#64748b' }}>value: {JSON.stringify(multi)}</pre>
+      </Section>
 
-        <Section title="Multi select + searchable">
+      <Section title="Multi select + searchable">
+        <Dropdown
+          multiple
+          searchable
+          options={COUNTRIES}
+          value={search}
+          onChange={setSearch}
+          placeholder="Search and pick…"
+        />
+        <pre style={{ margin: '8px 0 0', color: '#64748b' }}>value: {JSON.stringify(search)}</pre>
+      </Section>
+
+      <Section title="Sizes & states">
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+          <Dropdown size="sm" options={COLORS} placeholder="Small" />
+          <Dropdown size="lg" options={COLORS} placeholder="Large" />
+          <Dropdown options={COLORS} placeholder="Disabled" disabled defaultValue="r" />
+          <Dropdown options={COLORS} placeholder="Invalid" invalid />
+        </div>
+      </Section>
+
+      <Section title="Themed (custom primary color)">
+        <ThemeProvider
+          theme={{
+            colors: {
+              intent: {
+                primary: { solid: '#db2777', soft: '#fce7f3', text: '#9d174d', onSolid: '#fff' },
+              },
+            },
+          }}
+        >
           <Dropdown
             multiple
             searchable
-            options={COUNTRIES}
-            value={search}
-            onChange={setSearch}
-            placeholder="Search and pick…"
+            options={COLORS}
+            defaultValue={['g']}
+            placeholder="Pink theme"
           />
-          <pre style={{ margin: '8px 0 0', color: '#64748b' }}>value: {JSON.stringify(search)}</pre>
-        </Section>
-
-        <Section title="Inside a FormField (with error)">
-          <FormField
-            label="Favourite color"
-            required
-            error={single ? undefined : 'Please choose one'}
-          >
-            <Dropdown
-              options={COLORS}
-              placeholder="Pick a color"
-              value={single}
-              onChange={setSingle}
-            />
-          </FormField>
-        </Section>
-
-        <Section title="Sizes & states">
-          <Stack gap={2}>
-            <Dropdown size="sm" options={COLORS} placeholder="Small" />
-            <Dropdown size="lg" options={COLORS} placeholder="Large" />
-            <Dropdown options={COLORS} placeholder="Disabled" disabled defaultValue="r" />
-          </Stack>
-        </Section>
-
-        <Section title="Themed (custom primary color)">
-          <ThemeProvider
-            theme={{
-              colors: {
-                intent: {
-                  primary: { solid: '#db2777', soft: '#fce7f3', text: '#9d174d', onSolid: '#fff' },
-                },
-              },
-            }}
-          >
-            <Dropdown
-              multiple
-              searchable
-              options={COLORS}
-              defaultValue={['g']}
-              placeholder="Pink theme"
-            />
-          </ThemeProvider>
-        </Section>
-      </Stack>
+        </ThemeProvider>
+      </Section>
     </div>
   );
 }
