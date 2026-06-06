@@ -1,3 +1,5 @@
+import type { FastifyPluginAsync, FastifyReply, FastifyRequest } from 'fastify';
+import fp from 'fastify-plugin';
 import {
   type AdapterOptions,
   DEFAULTS,
@@ -7,8 +9,6 @@ import {
   isProtectedMethod,
   resolveAdapterOptions,
 } from 'hp24-idemkit-core';
-import type { FastifyPluginAsync, FastifyReply, FastifyRequest } from 'fastify';
-import fp from 'fastify-plugin';
 
 export interface FastifyIdempotencyOptions extends AdapterOptions {
   cacheable?: (response: SerializedResponse) => boolean;

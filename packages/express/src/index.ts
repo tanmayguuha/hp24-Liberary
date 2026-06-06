@@ -1,3 +1,4 @@
+import type { NextFunction, Request, RequestHandler, Response } from 'express';
 import {
   type AdapterOptions,
   IdempotencyEngine,
@@ -7,7 +8,6 @@ import {
   resolveAdapterOptions,
 } from 'hp24-idemkit-core';
 import { teeResponse, writeStored } from 'hp24-idemkit-core/node';
-import type { NextFunction, Request, RequestHandler, Response } from 'express';
 
 export interface ExpressIdempotencyOptions extends AdapterOptions {
   /**

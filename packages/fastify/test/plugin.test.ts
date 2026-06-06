@@ -1,5 +1,5 @@
-import { MemoryStore } from 'hp24-idemkit-core';
 import Fastify, { type FastifyInstance } from 'fastify';
+import { MemoryStore } from 'hp24-idemkit-core';
 import { describe, expect, it, vi } from 'vitest';
 import idempotency, { type FastifyIdempotencyOptions } from '../src/index.js';
 

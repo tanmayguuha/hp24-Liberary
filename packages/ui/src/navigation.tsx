@@ -54,7 +54,6 @@ export function Pagination({ page, pageCount, onChange, siblings = 1, style }: P
       {btn('‹', page - 1, { disabled: page <= 1 })}
       {pages.map((p, i) =>
         p === '…' ? (
-          // biome-ignore lint/suspicious/noArrayIndexKey: ellipsis positions are stable.
           <span key={`gap-${i}`} style={{ color: t.colors.textMuted, padding: '0 4px' }}>
             …
           </span>

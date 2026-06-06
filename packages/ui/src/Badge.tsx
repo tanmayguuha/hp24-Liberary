@@ -159,7 +159,6 @@ export function AvatarGroup({
     <div style={{ display: 'inline-flex', alignItems: 'center', ...style }} {...rest}>
       {shown.map((child, i) => (
         <div
-          // biome-ignore lint/suspicious/noArrayIndexKey: avatar group order is stable.
           key={i}
           style={{
             marginLeft: i === 0 ? 0 : -size * 0.3,

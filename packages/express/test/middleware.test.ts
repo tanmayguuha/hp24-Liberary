@@ -1,5 +1,5 @@
-import { MemoryStore } from 'hp24-idemkit-core';
 import express, { type Express } from 'express';
+import { MemoryStore } from 'hp24-idemkit-core';
 import request from 'supertest';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { type ExpressIdempotencyOptions, idempotency } from '../src/index.js';
