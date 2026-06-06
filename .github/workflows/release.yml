@@ -27,6 +27,16 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      # Safety gate: never publish a broken build. Mirrors the CI workflow.
+      - name: Lint
+        run: pnpm lint
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Test
+        run: pnpm test
+
       - name: Build
         run: pnpm build
 
