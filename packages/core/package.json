@@ -1,5 +1,5 @@
 {
-  "name": "@hp24/idemkit-core",
+  "name": "hp24-idemkit-core",
   "version": "0.1.0",
   "description": "Framework-agnostic idempotency engine: storage interface, in-memory store, body fingerprinting and concurrency-safe lock-before-execute. Zero runtime dependencies.",
   "keywords": [

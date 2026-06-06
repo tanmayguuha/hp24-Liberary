@@ -66,7 +66,7 @@ const defaultRetryOn = (info: RetryDecisionInfo): boolean => {
  * original response instead of executing twice.
  *
  * ```ts
- * import { createIdempotentFetch } from '@hp24/idemkit-client';
+ * import { createIdempotentFetch } from 'hp24-idemkit-client';
  *
  * const ifetch = createIdempotentFetch();
  * const res = await ifetch('/api/charges', {

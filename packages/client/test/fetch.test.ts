@@ -8,7 +8,7 @@ function ok(body = '{}', status = 200): Response {
   return new Response(body, { status, headers: { 'content-type': 'application/json' } });
 }
 
-describe('@hp24/idemkit-client createIdempotentFetch', () => {
+describe('hp24-idemkit-client createIdempotentFetch', () => {
   it('attaches a generated Idempotency-Key for POST', async () => {
     const fetchImpl = vi.fn(async () => ok());
     const ifetch = createIdempotentFetch({ fetch: fetchImpl, generateKey: () => 'fixed-key' });

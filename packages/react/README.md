@@ -1,9 +1,9 @@
-# @hp24/idemkit-react
+# hp24-idemkit-react
 
-React hooks for idempotent mutations — built on [`@hp24/idemkit-client`](../client). Part of [idemkit](../../README.md).
+React hooks for idempotent mutations — built on [`hp24-idemkit-client`](../client). Part of [idemkit](../../README.md).
 
 ```bash
-npm install @hp24/idemkit-react @hp24/idemkit-client
+npm install hp24-idemkit-react hp24-idemkit-client
 ```
 
 A `useMutation`-style hook for write operations that must run **at most once**. Each submission gets a stable `Idempotency-Key` reused across automatic *and* manual retries, and concurrent `mutate` calls (double-clicks) share one in-flight request.
@@ -11,7 +11,7 @@ A `useMutation`-style hook for write operations that must run **at most once**. 
 ## Usage
 
 ```tsx
-import { useIdempotentMutation } from '@hp24/idemkit-react';
+import { useIdempotentMutation } from 'hp24-idemkit-react';
 
 function PayButton({ amount }: { amount: number }) {
   const charge = useIdempotentMutation<{ id: string }, { amount: number }>({
@@ -44,7 +44,7 @@ Returns `{ mutate, data, error, status, isIdle, isPending, isSuccess, isError, r
 Wrap your app to share one configured fetch (retry policy, key store, headers):
 
 ```tsx
-import { IdemkitProvider } from '@hp24/idemkit-react';
+import { IdemkitProvider } from 'hp24-idemkit-react';
 
 <IdemkitProvider retry={{ retries: 3 }}>
   <App />

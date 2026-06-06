@@ -1,4 +1,4 @@
-import { MemoryStore } from '@hp24/idemkit-core';
+import { MemoryStore } from 'hp24-idemkit-core';
 import Fastify, { type FastifyInstance } from 'fastify';
 import { describe, expect, it, vi } from 'vitest';
 import idempotency, { type FastifyIdempotencyOptions } from '../src/index.js';
@@ -24,7 +24,7 @@ function inject(app: FastifyInstance, key: string | undefined, payload: unknown)
   });
 }
 
-describe('@hp24/idemkit-fastify', () => {
+describe('hp24-idemkit-fastify', () => {
   it('executes the handler on first request', async () => {
     const app = await makeApp();
     const res = await inject(app, 'k1', { amt: 1 });

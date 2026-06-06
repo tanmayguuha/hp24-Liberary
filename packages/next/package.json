@@ -1,7 +1,7 @@
 {
-  "name": "@hp24/idemkit-next",
+  "name": "hp24-idemkit-next",
   "version": "0.1.0",
-  "description": "Next.js idempotency wrappers for App Router route handlers and Pages API routes, powered by @hp24/idemkit-core.",
+  "description": "Next.js idempotency wrappers for App Router route handlers and Pages API routes, powered by hp24-idemkit-core.",
   "keywords": ["idempotency", "next", "nextjs", "app-router", "route-handler", "idempotency-key"],
   "license": "MIT",
   "author": "Harsh Patidar",
@@ -22,7 +22,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@hp24/idemkit-core": "workspace:^"
+    "hp24-idemkit-core": "workspace:^"
   },
   "peerDependencies": {
     "next": ">=13.4.0"

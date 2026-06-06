@@ -5,8 +5,8 @@ import {
   type SerializedResponse,
   isProtectedMethod,
   resolveAdapterOptions,
-} from '@hp24/idemkit-core';
-import { teeResponse, writeStored } from '@hp24/idemkit-core/node';
+} from 'hp24-idemkit-core';
+import { teeResponse, writeStored } from 'hp24-idemkit-core/node';
 import type { NextFunction, Request, RequestHandler, Response } from 'express';
 
 export interface ExpressIdempotencyOptions extends AdapterOptions {
@@ -32,8 +32,8 @@ const cacheableDefault = (r: SerializedResponse) => r.statusCode >= 200 && r.sta
  *
  * ```ts
  * import express from 'express';
- * import { MemoryStore } from '@hp24/idemkit-core';
- * import { idempotency } from '@hp24/idemkit-express';
+ * import { MemoryStore } from 'hp24-idemkit-core';
+ * import { idempotency } from 'hp24-idemkit-express';
  *
  * const app = express();
  * app.use(express.json());

@@ -1,7 +1,7 @@
 {
-  "name": "@hp24/idemkit-fastify",
+  "name": "hp24-idemkit-fastify",
   "version": "0.1.0",
-  "description": "Fastify plugin adding Idempotency-Key support to your routes, powered by @hp24/idemkit-core.",
+  "description": "Fastify plugin adding Idempotency-Key support to your routes, powered by hp24-idemkit-core.",
   "keywords": ["idempotency", "fastify", "plugin", "idempotency-key", "typescript"],
   "license": "MIT",
   "author": "Harsh Patidar",
@@ -22,7 +22,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@hp24/idemkit-core": "workspace:^",
+    "hp24-idemkit-core": "workspace:^",
     "fastify-plugin": "^5.0.1"
   },
   "peerDependencies": {

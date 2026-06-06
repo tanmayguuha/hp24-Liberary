@@ -12,7 +12,7 @@ import type {
  * the synchronous check-and-set in {@link begin} atomically, so two overlapping
  * async requests with the same key cannot both receive the `new` outcome.
  *
- * Not suitable across processes/instances — use `@hp24/idemkit-redis` for that.
+ * Not suitable across processes/instances — use `hp24-idemkit-redis` for that.
  *
  * Expired records are reclaimed lazily on access; an optional sweep interval
  * can be enabled to bound memory for keys that are never revisited.

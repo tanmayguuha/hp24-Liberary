@@ -10,4 +10,4 @@ export type {
   UseIdempotentMutationResult,
 } from './use-idempotent-mutation.js';
 // Re-export the key generator for convenience.
-export { generateIdempotencyKey } from '@hp24/idemkit-client';
+export { generateIdempotencyKey } from 'hp24-idemkit-client';

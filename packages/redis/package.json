@@ -1,5 +1,5 @@
 {
-  "name": "@hp24/idemkit-redis",
+  "name": "hp24-idemkit-redis",
   "version": "0.1.0",
   "description": "Production-grade Redis storage adapter for idemkit, with atomic SET NX PX locks for cross-instance idempotency.",
   "keywords": ["idempotency", "redis", "ioredis", "idempotency-key", "store", "lock"],
@@ -22,7 +22,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@hp24/idemkit-core": "workspace:^"
+    "hp24-idemkit-core": "workspace:^"
   },
   "peerDependencies": {
     "ioredis": "^5.0.0"

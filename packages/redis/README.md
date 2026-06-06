@@ -1,17 +1,17 @@
-# @hp24/idemkit-redis
+# hp24-idemkit-redis
 
 Production-grade Redis storage adapter for [idemkit](../../README.md). Use this for multi-instance / serverless deployments where an in-memory store can't deduplicate across processes.
 
 ```bash
-npm install @hp24/idemkit-redis @hp24/idemkit-core ioredis
+npm install hp24-idemkit-redis hp24-idemkit-core ioredis
 ```
 
 ## Usage
 
 ```ts
 import Redis from 'ioredis';
-import { RedisStore } from '@hp24/idemkit-redis';
-import { idempotency } from '@hp24/idemkit-express';
+import { RedisStore } from 'hp24-idemkit-redis';
+import { idempotency } from 'hp24-idemkit-express';
 
 const store = new RedisStore({
   client: new Redis(process.env.REDIS_URL),

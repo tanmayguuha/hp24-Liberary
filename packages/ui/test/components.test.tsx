@@ -20,7 +20,7 @@ import {
 
 afterEach(cleanup);
 
-describe('@hp24/ui', () => {
+describe('hp24-ui', () => {
   it('Button renders children and fires onClick', () => {
     const onClick = vi.fn();
     render(<Button onClick={onClick}>Save</Button>);

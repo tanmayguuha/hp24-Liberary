@@ -4,7 +4,7 @@ import type {
   IdempotencyRecord,
   IdempotencyStore,
   SerializedResponse,
-} from '@hp24/idemkit-core';
+} from 'hp24-idemkit-core';
 
 /**
  * The subset of an ioredis client idemkit uses. Declared structurally so this
@@ -59,8 +59,8 @@ return {0}
  *
  * ```ts
  * import Redis from 'ioredis';
- * import { RedisStore } from '@hp24/idemkit-redis';
- * import { idempotency } from '@hp24/idemkit-express';
+ * import { RedisStore } from 'hp24-idemkit-redis';
+ * import { idempotency } from 'hp24-idemkit-express';
  *
  * const store = new RedisStore({ client: new Redis(process.env.REDIS_URL) });
  * app.use(idempotency({ store }));

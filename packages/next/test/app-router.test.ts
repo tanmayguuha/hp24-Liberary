@@ -1,4 +1,4 @@
-import { MemoryStore } from '@hp24/idemkit-core';
+import { MemoryStore } from 'hp24-idemkit-core';
 import { describe, expect, it, vi } from 'vitest';
 import { withIdempotency } from '../src/app-router.js';
 
@@ -12,7 +12,7 @@ function post(key: string | undefined, body: unknown): Request {
   });
 }
 
-describe('@hp24/idemkit-next withIdempotency (App Router)', () => {
+describe('hp24-idemkit-next withIdempotency (App Router)', () => {
   it('executes the handler on first request and replays on repeat', async () => {
     const store = new MemoryStore();
     let n = 0;

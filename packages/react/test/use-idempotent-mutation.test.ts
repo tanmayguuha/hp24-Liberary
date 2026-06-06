@@ -17,7 +17,7 @@ const request = (vars: { amt: number }) => ({
   init: { method: 'POST', body: JSON.stringify(vars) },
 });
 
-describe('@hp24/idemkit-react useIdempotentMutation', () => {
+describe('hp24-idemkit-react useIdempotentMutation', () => {
   it('resolves with parsed data and sets success state', async () => {
     const { fn } = makeFetch();
     const { result } = renderHook(() =>

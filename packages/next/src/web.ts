@@ -1,4 +1,4 @@
-import type { SerializedResponse } from '@hp24/idemkit-core';
+import type { SerializedResponse } from 'hp24-idemkit-core';
 
 const NON_REPLAYABLE = new Set(['connection', 'keep-alive', 'transfer-encoding', 'content-length']);
 

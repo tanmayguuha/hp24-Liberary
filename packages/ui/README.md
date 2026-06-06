@@ -1,15 +1,15 @@
-# @hp24/ui
+# hp24-ui
 
 > Zero-config, prop-driven React UI components. Pass props, get accessible UI — no CSS import, no Tailwind setup.
 
 Works in **React, Next.js (App Router & Pages), Vite, or any bundler**. Components are styled with inline styles driven by a shared theme, so there's nothing to import or configure — install and use.
 
 ```bash
-npm install @hp24/ui
+npm install hp24-ui
 ```
 
 ```tsx
-import { Button, Card, Stat, Table } from '@hp24/ui';
+import { Button, Card, Stat, Table } from 'hp24-ui';
 
 export function Dashboard({ charges }) {
   return (
@@ -60,7 +60,7 @@ The components you'll reach for most just take data and render it:
 ## Theming
 
 ```tsx
-import { ThemeProvider } from '@hp24/ui';
+import { ThemeProvider } from 'hp24-ui';
 
 <ThemeProvider theme={{ colors: { intent: { primary: { solid: '#7c3aed', soft: '#f5f3ff', text: '#5b21b6', onSolid: '#fff' } } } }}>
   <App />
@@ -72,7 +72,7 @@ The `theme` is deep-merged onto the defaults, so you only override what you want
 ## Toasts
 
 ```tsx
-import { ToastProvider, useToast } from '@hp24/ui';
+import { ToastProvider, useToast } from 'hp24-ui';
 
 function Save() {
   const { toast } = useToast();

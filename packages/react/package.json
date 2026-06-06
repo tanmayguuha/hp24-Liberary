@@ -1,5 +1,5 @@
 {
-  "name": "@hp24/idemkit-react",
+  "name": "hp24-idemkit-react",
   "version": "0.1.0",
   "description": "React hooks for idempotent mutations: a useMutation-style hook that safely retries with a stable Idempotency-Key and prevents double-submits.",
   "keywords": ["idempotency", "react", "hook", "mutation", "idempotency-key", "fetch"],
@@ -22,7 +22,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@hp24/idemkit-client": "workspace:^"
+    "hp24-idemkit-client": "workspace:^"
   },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0 || ^19.0.0"

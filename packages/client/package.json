@@ -1,5 +1,5 @@
 {
-  "name": "@hp24/idemkit-client",
+  "name": "hp24-idemkit-client",
   "version": "0.1.0",
   "description": "Universal (browser + Node) idempotent fetch wrapper: generates and persists an Idempotency-Key per logical request and safely retries with backoff. Zero dependencies.",
   "keywords": ["idempotency", "fetch", "retry", "idempotency-key", "client", "browser"],

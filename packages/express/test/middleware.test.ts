@@ -1,4 +1,4 @@
-import { MemoryStore } from '@hp24/idemkit-core';
+import { MemoryStore } from 'hp24-idemkit-core';
 import express, { type Express } from 'express';
 import request from 'supertest';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
@@ -19,7 +19,7 @@ beforeEach(() => {
   counter = 0;
 });
 
-describe('@hp24/idemkit-express', () => {
+describe('hp24-idemkit-express', () => {
   it('executes the handler on the first request', async () => {
     const app = makeApp();
     const res = await request(app).post('/charges').set('Idempotency-Key', 'k1').send({ amt: 10 });
