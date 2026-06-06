@@ -1,5 +1,5 @@
 {
-  "name": "@idemkit/core",
+  "name": "@hp24/idemkit-core",
   "version": "0.1.0",
   "description": "Framework-agnostic idempotency engine: storage interface, in-memory store, body fingerprinting and concurrency-safe lock-before-execute. Zero runtime dependencies.",
   "keywords": [
@@ -13,7 +13,7 @@
     "typescript"
   ],
   "license": "MIT",
-  "author": "Kapil",
+  "author": "Harsh Patidar",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -49,7 +49,6 @@
     "typecheck": "tsc --noEmit"
   },
   "publishConfig": {
-    "access": "public",
-    "provenance": true
+    "access": "public"
   }
 }

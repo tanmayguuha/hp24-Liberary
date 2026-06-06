@@ -33,7 +33,7 @@ importers:
 
   packages/express:
     dependencies:
-      '@idemkit/core':
+      '@hp24/idemkit-core':
         specifier: workspace:^
         version: link:../core
     devDependencies:
@@ -52,7 +52,7 @@ importers:
 
   packages/fastify:
     dependencies:
-      '@idemkit/core':
+      '@hp24/idemkit-core':
         specifier: workspace:^
         version: link:../core
       fastify-plugin:
@@ -65,7 +65,7 @@ importers:
 
   packages/next:
     dependencies:
-      '@idemkit/core':
+      '@hp24/idemkit-core':
         specifier: workspace:^
         version: link:../core
     devDependencies:
@@ -75,7 +75,7 @@ importers:
 
   packages/react:
     dependencies:
-      '@idemkit/client':
+      '@hp24/idemkit-client':
         specifier: workspace:^
         version: link:../client
     devDependencies:
@@ -97,7 +97,7 @@ importers:
 
   packages/redis:
     dependencies:
-      '@idemkit/core':
+      '@hp24/idemkit-core':
         specifier: workspace:^
         version: link:../core
     devDependencies:

@@ -5,7 +5,7 @@ import {
   type SerializedResponse,
   isProtectedMethod,
   resolveAdapterOptions,
-} from '@idemkit/core';
+} from '@hp24/idemkit-core';
 import { buildWebResponse, jsonResponse, serializeWebResponse } from './web.js';
 
 /** An App Router route handler: `(req, ctx) => Response`. `ctx` carries the
@@ -29,8 +29,8 @@ const cacheableDefault = (r: SerializedResponse) => r.statusCode >= 200 && r.sta
  *
  * ```ts
  * // app/api/charges/route.ts
- * import { MemoryStore } from '@idemkit/core';
- * import { withIdempotency } from '@idemkit/next';
+ * import { MemoryStore } from '@hp24/idemkit-core';
+ * import { withIdempotency } from '@hp24/idemkit-next';
  *
  * const store = new MemoryStore();
  * export const POST = withIdempotency(async (req) => {

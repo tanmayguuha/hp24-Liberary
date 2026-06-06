@@ -1,10 +1,10 @@
 {
-  "name": "@idemkit/express",
+  "name": "@hp24/idemkit-express",
   "version": "0.1.0",
-  "description": "Express middleware that makes any route idempotent via the Idempotency-Key header, powered by @idemkit/core.",
+  "description": "Express middleware that makes any route idempotent via the Idempotency-Key header, powered by @hp24/idemkit-core.",
   "keywords": ["idempotency", "express", "middleware", "idempotency-key", "typescript"],
   "license": "MIT",
-  "author": "Kapil",
+  "author": "Harsh Patidar",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -22,7 +22,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@idemkit/core": "workspace:^"
+    "@hp24/idemkit-core": "workspace:^"
   },
   "peerDependencies": {
     "express": "^4.0.0 || ^5.0.0"
@@ -33,5 +33,5 @@
     "express": "^5.0.0",
     "supertest": "^7.0.0"
   },
-  "publishConfig": { "access": "public", "provenance": true }
+  "publishConfig": { "access": "public" }
 }

@@ -15,13 +15,13 @@ The HTTP convention to fix this is the **`Idempotency-Key`** header: the client 
 
 | Package | What it does |
 |---|---|
-| [`@idemkit/core`](packages/core) | Framework-agnostic engine, storage interface, in-memory store, body fingerprinting, concurrency-safe lock-before-execute. **Zero runtime deps.** |
-| [`@idemkit/express`](packages/express) | Express middleware. |
-| [`@idemkit/next`](packages/next) | Next.js App Router (`withIdempotency`) and Pages API (`withIdempotencyApi`) wrappers. |
-| [`@idemkit/fastify`](packages/fastify) | Fastify plugin. |
-| [`@idemkit/redis`](packages/redis) | Production Redis store with atomic locks for multi-instance deployments. |
-| [`@idemkit/client`](packages/client) | Universal idempotent `fetch` wrapper (key generation + persistence + retry). |
-| [`@idemkit/react`](packages/react) | `useIdempotentMutation` hook + provider. |
+| [`@hp24/idemkit-core`](packages/core) | Framework-agnostic engine, storage interface, in-memory store, body fingerprinting, concurrency-safe lock-before-execute. **Zero runtime deps.** |
+| [`@hp24/idemkit-express`](packages/express) | Express middleware. |
+| [`@hp24/idemkit-next`](packages/next) | Next.js App Router (`withIdempotency`) and Pages API (`withIdempotencyApi`) wrappers. |
+| [`@hp24/idemkit-fastify`](packages/fastify) | Fastify plugin. |
+| [`@hp24/idemkit-redis`](packages/redis) | Production Redis store with atomic locks for multi-instance deployments. |
+| [`@hp24/idemkit-client`](packages/client) | Universal idempotent `fetch` wrapper (key generation + persistence + retry). |
+| [`@hp24/idemkit-react`](packages/react) | `useIdempotentMutation` hook + provider. |
 
 ## Quick start (Express + browser)
 
@@ -29,8 +29,8 @@ The HTTP convention to fix this is the **`Idempotency-Key`** header: the client 
 
 ```ts
 import express from 'express';
-import { MemoryStore } from '@idemkit/core';
-import { idempotency } from '@idemkit/express';
+import { MemoryStore } from '@hp24/idemkit-core';
+import { idempotency } from '@hp24/idemkit-express';
 
 const app = express();
 app.use(express.json());
@@ -45,7 +45,7 @@ app.post('/charges', (req, res) => {
 **Client**
 
 ```ts
-import { createIdempotentFetch } from '@idemkit/client';
+import { createIdempotentFetch } from '@hp24/idemkit-client';
 
 const ifetch = createIdempotentFetch();
 const res = await ifetch('/charges', {
@@ -56,7 +56,7 @@ const res = await ifetch('/charges', {
 // Retries reuse the same key → the server replays instead of charging twice.
 ```
 
-For production, swap `MemoryStore` for `RedisStore` from `@idemkit/redis`. Nothing else changes.
+For production, swap `MemoryStore` for `RedisStore` from `@hp24/idemkit-redis`. Nothing else changes.
 
 ## How it works
 
@@ -97,4 +97,4 @@ This is a pnpm-workspaces monorepo. Each package ships dual ESM/CJS with a typed
 
 ## License
 
-[MIT](LICENSE) © Kapil
+[MIT](LICENSE) © Harsh Patidar

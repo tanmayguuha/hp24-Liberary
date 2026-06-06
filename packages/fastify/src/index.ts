@@ -6,7 +6,7 @@ import {
   fingerprint as computeFingerprint,
   isProtectedMethod,
   resolveAdapterOptions,
-} from '@idemkit/core';
+} from '@hp24/idemkit-core';
 import type { FastifyPluginAsync, FastifyReply, FastifyRequest } from 'fastify';
 import fp from 'fastify-plugin';
 
@@ -32,8 +32,8 @@ type RequestWithState = FastifyRequest & { [STATE]?: CaptureState };
  *
  * ```ts
  * import Fastify from 'fastify';
- * import { MemoryStore } from '@idemkit/core';
- * import idempotency from '@idemkit/fastify';
+ * import { MemoryStore } from '@hp24/idemkit-core';
+ * import idempotency from '@hp24/idemkit-fastify';
  *
  * const app = Fastify();
  * await app.register(idempotency, { store: new MemoryStore() });
@@ -176,5 +176,5 @@ async function waitForCompletion(
   return { kind: 'in_progress' as const, record: undefined as never };
 }
 
-export default fp(plugin, { name: '@idemkit/fastify', fastify: '4.x || 5.x' });
+export default fp(plugin, { name: '@hp24/idemkit-fastify', fastify: '4.x || 5.x' });
 export { plugin as idempotencyPlugin };

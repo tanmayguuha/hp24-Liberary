@@ -1,11 +1,11 @@
-# @idemkit/core
+# @hp24/idemkit-core
 
 Framework-agnostic idempotency engine — the heart of [idemkit](../../README.md). Zero runtime dependencies.
 
-You usually install a framework adapter (`@idemkit/express`, `@idemkit/next`, `@idemkit/fastify`) which depends on this. Install core directly when building your own adapter or a custom store.
+You usually install a framework adapter (`@hp24/idemkit-express`, `@hp24/idemkit-next`, `@hp24/idemkit-fastify`) which depends on this. Install core directly when building your own adapter or a custom store.
 
 ```bash
-npm install @idemkit/core
+npm install @hp24/idemkit-core
 ```
 
 ## What's in the box
@@ -15,12 +15,12 @@ npm install @idemkit/core
 - **`fingerprint`** — stable SHA-256 of a canonicalized payload (key order doesn't matter).
 - **`IdempotencyStore`** — the interface every store implements (`begin` / `complete` / `fail` / `get`).
 - **Adapter kit** — `resolveAdapterOptions`, `isProtectedMethod`, `STATUS`, defaults shared by all adapters.
-- **`@idemkit/core/node`** — `teeResponse` / `writeStored` helpers for Node `ServerResponse`-based adapters.
+- **`@hp24/idemkit-core/node`** — `teeResponse` / `writeStored` helpers for Node `ServerResponse`-based adapters.
 
 ## Engine example
 
 ```ts
-import { IdempotencyEngine, MemoryStore } from '@idemkit/core';
+import { IdempotencyEngine, MemoryStore } from '@hp24/idemkit-core';
 
 const engine = new IdempotencyEngine({ store: new MemoryStore(), onConflict: 'wait' });
 
@@ -42,7 +42,7 @@ switch (decision.action) {
 
 ## Implementing a custom store
 
-Implement `IdempotencyStore`. The one rule that matters: **`begin` must be atomic** — for a given key, the `new` outcome goes to exactly one concurrent caller; everyone else gets `in_progress`, `completed`, or `mismatch`. See `MemoryStore` and `@idemkit/redis` for reference implementations.
+Implement `IdempotencyStore`. The one rule that matters: **`begin` must be atomic** — for a given key, the `new` outcome goes to exactly one concurrent caller; everyone else gets `in_progress`, `completed`, or `mismatch`. See `MemoryStore` and `@hp24/idemkit-redis` for reference implementations.
 
 ## License
 

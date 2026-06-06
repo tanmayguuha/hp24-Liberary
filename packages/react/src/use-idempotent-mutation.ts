@@ -2,7 +2,7 @@ import {
   type IdempotentFetch,
   type IdempotentRequestInit,
   generateIdempotencyKey,
-} from '@idemkit/client';
+} from '@hp24/idemkit-client';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useIdempotentFetch } from './context.js';
 

@@ -1,4 +1,4 @@
-import type { SerializedResponse } from '@idemkit/core';
+import type { SerializedResponse } from '@hp24/idemkit-core';
 import { describe, expect, it } from 'vitest';
 import { type RedisLike, RedisStore, interpretExisting } from '../src/index.js';
 
@@ -69,7 +69,7 @@ function makeStore() {
   return { store, clock };
 }
 
-describe('@idemkit/redis RedisStore', () => {
+describe('@hp24/idemkit-redis RedisStore', () => {
   it('acquires a lock for an unseen key', async () => {
     const { store } = makeStore();
     expect(await store.begin('k1', 'fp', OPTS)).toEqual({ kind: 'new' });

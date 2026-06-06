@@ -2,7 +2,7 @@ import {
   type IdempotentFetch,
   type IdempotentFetchOptions,
   createIdempotentFetch,
-} from '@idemkit/client';
+} from '@hp24/idemkit-client';
 import { type ReactNode, createContext, createElement, useContext, useMemo, useRef } from 'react';
 
 const FetchContext = createContext<IdempotentFetch | null>(null);

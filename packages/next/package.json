@@ -1,10 +1,10 @@
 {
-  "name": "@idemkit/next",
+  "name": "@hp24/idemkit-next",
   "version": "0.1.0",
-  "description": "Next.js idempotency wrappers for App Router route handlers and Pages API routes, powered by @idemkit/core.",
+  "description": "Next.js idempotency wrappers for App Router route handlers and Pages API routes, powered by @hp24/idemkit-core.",
   "keywords": ["idempotency", "next", "nextjs", "app-router", "route-handler", "idempotency-key"],
   "license": "MIT",
-  "author": "Kapil",
+  "author": "Harsh Patidar",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -22,7 +22,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@idemkit/core": "workspace:^"
+    "@hp24/idemkit-core": "workspace:^"
   },
   "peerDependencies": {
     "next": ">=13.4.0"
@@ -33,5 +33,5 @@
   "devDependencies": {
     "next": "^15.0.0"
   },
-  "publishConfig": { "access": "public", "provenance": true }
+  "publishConfig": { "access": "public" }
 }

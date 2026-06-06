@@ -5,8 +5,8 @@ import {
   type SerializedResponse,
   isProtectedMethod,
   resolveAdapterOptions,
-} from '@idemkit/core';
-import { teeResponse, writeStored } from '@idemkit/core/node';
+} from '@hp24/idemkit-core';
+import { teeResponse, writeStored } from '@hp24/idemkit-core/node';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 export interface NextApiIdempotencyOptions extends AdapterOptions {
@@ -23,8 +23,8 @@ const cacheableDefault = (r: SerializedResponse) => r.statusCode >= 200 && r.sta
  *
  * ```ts
  * // pages/api/charges.ts
- * import { MemoryStore } from '@idemkit/core';
- * import { withIdempotencyApi } from '@idemkit/next';
+ * import { MemoryStore } from '@hp24/idemkit-core';
+ * import { withIdempotencyApi } from '@hp24/idemkit-next';
  *
  * const store = new MemoryStore();
  * export default withIdempotencyApi((req, res) => {
