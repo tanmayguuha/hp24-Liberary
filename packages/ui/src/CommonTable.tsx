@@ -59,10 +59,10 @@ export function CommonTable<T>({
 
     const normalRows = data.filter((row) => !isPinnedBottomRow(row as T & Record<string, unknown>));
     const pinnedBottomRows = data.filter((row) =>
-      isPinnedBottomRow(row as T & Record<string, unknown>)
+      isPinnedBottomRow(row as T & Record<string, unknown>),
     );
-    const activeSorting = sorting.filter(
-      (sd) => columns.some((col) => col.key === sd.key && col.sortable !== false)
+    const activeSorting = sorting.filter((sd) =>
+      columns.some((col) => col.key === sd.key && col.sortable !== false),
     );
 
     if (activeSorting.length === 0) {
@@ -137,9 +137,7 @@ export function CommonTable<T>({
   }[rowSize];
 
   const defaultEmptyState = (
-    <div style={{ textAlign: 'center', padding: '20px', color: '#64748b' }}>
-      No data available
-    </div>
+    <div style={{ textAlign: 'center', padding: '20px', color: '#64748b' }}>No data available</div>
   );
 
   const defaultErrorState = (
@@ -226,7 +224,9 @@ export function CommonTable<T>({
                 zIndex: col.sticky ? 10 : 'auto',
               }}
             >
-              {col.render ? col.render(row, rowIndex) : String((rowRecord[col.key] as unknown) ?? '')}
+              {col.render
+                ? col.render(row, rowIndex)
+                : String((rowRecord[col.key] as unknown) ?? '')}
             </td>
           ))}
         </tr>

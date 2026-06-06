@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 // Imports straight from source — edit and the page hot-reloads.
-import { Dropdown, ThemeProvider, CommonTable, type Column } from '../src/index.js';
+import { type Column, CommonTable, Dropdown, ThemeProvider } from '../src/index.js';
 
 const COLORS = [
   { label: 'Red', value: 'r' },
@@ -54,7 +54,14 @@ const PRODUCTS: Product[] = [
   { id: '2', name: 'Wireless Mouse', category: 'Accessories', price: 29, stock: 124, rating: 4.3 },
   { id: '3', name: 'USB-C Cable', category: 'Accessories', price: 12, stock: 350, rating: 4.5 },
   { id: '4', name: '4K Monitor', category: 'Electronics', price: 399, stock: 32, rating: 4.7 },
-  { id: '5', name: 'Mechanical Keyboard', category: 'Accessories', price: 149, stock: 67, rating: 4.6 },
+  {
+    id: '5',
+    name: 'Mechanical Keyboard',
+    category: 'Accessories',
+    price: 149,
+    stock: 67,
+    rating: 4.6,
+  },
   { id: '6', name: 'Webcam HD', category: 'Electronics', price: 79, stock: 43, rating: 4.4 },
 ];
 
@@ -213,7 +220,9 @@ function Demo() {
             />
           </div>
           <div>
-            <h4 style={{ margin: '0 0 8px', fontSize: 12, color: '#64748b' }}>Medium rows (default)</h4>
+            <h4 style={{ margin: '0 0 8px', fontSize: 12, color: '#64748b' }}>
+              Medium rows (default)
+            </h4>
             <CommonTable
               data={PRODUCTS.slice(0, 3)}
               columns={[
@@ -245,9 +254,7 @@ function Demo() {
             { key: 'price', title: 'Price' },
           ]}
           emptyState={
-            <div style={{ color: '#64748b', padding: '20px' }}>
-              📦 No products available
-            </div>
+            <div style={{ color: '#64748b', padding: '20px' }}>📦 No products available</div>
           }
         />
       </Section>

@@ -1,5 +1,27 @@
 # hp24-ui
 
+## 0.5.0
+
+### Minor Changes
+
+- Add `CommonTable` — a flexible, data-driven table with sorting, row selection, and custom cell rendering. Exports the `CommonTable` component and `Column` type.
+
+## 0.4.0
+
+### Minor Changes
+
+- feat: add CommonTable component with sorting, selection, and custom rendering
+
+  - Flexible data table with multi-column sorting (single and multi-column modes)
+  - Row selection with visual highlighting and keyboard navigation
+  - Custom cell rendering with full TypeScript support
+  - Loading, empty, and error states
+  - Footer row support with sticky pinning after sorting
+  - Three row sizes (small, medium, large)
+  - Full keyboard accessibility (Enter, Space, Tab navigation)
+  - 33 comprehensive tests covering all scenarios
+  - Zero external dependencies (React only)
+
 ## 0.3.1
 
 ### Patch Changes

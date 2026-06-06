@@ -1,7 +1,7 @@
 // @vitest-environment happy-dom
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { CommonTable, type Column } from '../src/index.js';
+import { type Column, CommonTable } from '../src/index.js';
 
 afterEach(cleanup);
 
@@ -69,7 +69,7 @@ describe('CommonTable', () => {
           data={[]}
           columns={defaultColumns}
           emptyState={<div>Custom empty message</div>}
-        />
+        />,
       );
       expect(screen.getByText('Custom empty message')).toBeTruthy();
     });
@@ -80,7 +80,7 @@ describe('CommonTable', () => {
           data={[]}
           columns={defaultColumns}
           errorState={<div>Error loading data</div>}
-        />
+        />,
       );
       expect(screen.getByText('Error loading data')).toBeTruthy();
     });
@@ -146,7 +146,7 @@ describe('CommonTable', () => {
 
     it('supports multi-column sorting', () => {
       const { container } = render(
-        <CommonTable data={mockData} columns={defaultColumns} multiSort={true} />
+        <CommonTable data={mockData} columns={defaultColumns} multiSort={true} />,
       );
 
       const nameHeader = screen.getByText('Name').closest('th');
@@ -214,7 +214,7 @@ describe('CommonTable', () => {
               render: (row) => row.joinDate.toLocaleDateString(),
             },
           ]}
-        />
+        />,
       );
 
       const dateHeader = screen.getByText('Join Date').closest('th');
@@ -227,7 +227,14 @@ describe('CommonTable', () => {
 
     it('handles null values in sort', () => {
       const dataWithNulls = [
-        { id: '1', name: 'Alice', age: null, salary: 75000, email: 'a@ex.com', joinDate: new Date() },
+        {
+          id: '1',
+          name: 'Alice',
+          age: null,
+          salary: 75000,
+          email: 'a@ex.com',
+          joinDate: new Date(),
+        },
         { id: '2', name: 'Bob', age: 35, salary: 85000, email: 'b@ex.com', joinDate: new Date() },
         { id: '3', name: 'Carol', age: 32, salary: 90000, email: 'c@ex.com', joinDate: new Date() },
       ] as any[];
@@ -269,7 +276,7 @@ describe('CommonTable', () => {
     it('calls onRowClick when a row is clicked', () => {
       const onRowClick = vi.fn();
       const { container } = render(
-        <CommonTable data={mockData} columns={defaultColumns} onRowClick={onRowClick} />
+        <CommonTable data={mockData} columns={defaultColumns} onRowClick={onRowClick} />,
       );
 
       const rows = container.querySelectorAll('tbody tr');
@@ -280,7 +287,7 @@ describe('CommonTable', () => {
 
     it('highlights selected row', () => {
       const { container } = render(
-        <CommonTable data={mockData} columns={defaultColumns} selectedRowIndex={1} />
+        <CommonTable data={mockData} columns={defaultColumns} selectedRowIndex={1} />,
       );
 
       const rows = container.querySelectorAll('tbody tr');
@@ -292,7 +299,7 @@ describe('CommonTable', () => {
     it('calls onRowClick with Enter key', () => {
       const onRowClick = vi.fn();
       const { container } = render(
-        <CommonTable data={mockData} columns={defaultColumns} onRowClick={onRowClick} />
+        <CommonTable data={mockData} columns={defaultColumns} onRowClick={onRowClick} />,
       );
 
       const rows = container.querySelectorAll('tbody tr');
@@ -304,7 +311,7 @@ describe('CommonTable', () => {
     it('calls onRowClick with Space key', () => {
       const onRowClick = vi.fn();
       const { container } = render(
-        <CommonTable data={mockData} columns={defaultColumns} onRowClick={onRowClick} />
+        <CommonTable data={mockData} columns={defaultColumns} onRowClick={onRowClick} />,
       );
 
       const rows = container.querySelectorAll('tbody tr');
@@ -315,7 +322,7 @@ describe('CommonTable', () => {
 
     it('rows have button role with onRowClick', () => {
       const { container } = render(
-        <CommonTable data={mockData} columns={defaultColumns} onRowClick={() => {}} />
+        <CommonTable data={mockData} columns={defaultColumns} onRowClick={() => {}} />,
       );
 
       const rows = container.querySelectorAll('tbody tr');
@@ -343,9 +350,7 @@ describe('CommonTable', () => {
     it('passes row and rowIndex to render function', () => {
       const renderFn = vi.fn((row: Person) => row.name);
 
-      const columns: Column<Person>[] = [
-        { key: 'name', title: 'Name', render: renderFn },
-      ];
+      const columns: Column<Person>[] = [{ key: 'name', title: 'Name', render: renderFn }];
 
       render(<CommonTable data={mockData} columns={columns} />);
 
@@ -357,7 +362,7 @@ describe('CommonTable', () => {
   describe('Row sizes', () => {
     it('renders with small row size', () => {
       const { container } = render(
-        <CommonTable data={mockData} columns={defaultColumns} rowSize="small" />
+        <CommonTable data={mockData} columns={defaultColumns} rowSize="small" />,
       );
 
       const rows = container.querySelectorAll('tbody tr');
@@ -373,7 +378,7 @@ describe('CommonTable', () => {
 
     it('renders with large row size', () => {
       const { container } = render(
-        <CommonTable data={mockData} columns={defaultColumns} rowSize="large" />
+        <CommonTable data={mockData} columns={defaultColumns} rowSize="large" />,
       );
 
       const rows = container.querySelectorAll('tbody tr');
@@ -385,7 +390,15 @@ describe('CommonTable', () => {
     it('renders footer row with isFooter flag', () => {
       const dataWithFooter = [
         ...mockData,
-        { id: 'footer', name: 'TOTAL', age: 0, salary: 0, email: '', joinDate: new Date(), isFooter: true } as any,
+        {
+          id: 'footer',
+          name: 'TOTAL',
+          age: 0,
+          salary: 0,
+          email: '',
+          joinDate: new Date(),
+          isFooter: true,
+        } as any,
       ];
 
       const { container } = render(<CommonTable data={dataWithFooter} columns={defaultColumns} />);
@@ -396,7 +409,15 @@ describe('CommonTable', () => {
     it('footer row is pinned to bottom after sorting', () => {
       const dataWithFooter = [
         ...mockData,
-        { id: 'footer', name: 'TOTAL', age: 0, salary: 0, email: '', joinDate: new Date(), isFooter: true } as any,
+        {
+          id: 'footer',
+          name: 'TOTAL',
+          age: 0,
+          salary: 0,
+          email: '',
+          joinDate: new Date(),
+          isFooter: true,
+        } as any,
       ];
 
       const { container } = render(<CommonTable data={dataWithFooter} columns={defaultColumns} />);
@@ -419,8 +440,22 @@ describe('CommonTable', () => {
 
     it('handles data with missing keys', () => {
       const incompleteData = [
-        { id: '1', name: 'Alice', age: 28, salary: 75000, email: 'alice@example.com', joinDate: new Date() },
-        { id: '2', name: 'Bob', age: 35, salary: undefined, email: 'bob@example.com', joinDate: new Date() } as any,
+        {
+          id: '1',
+          name: 'Alice',
+          age: 28,
+          salary: 75000,
+          email: 'alice@example.com',
+          joinDate: new Date(),
+        },
+        {
+          id: '2',
+          name: 'Bob',
+          age: 35,
+          salary: undefined,
+          email: 'bob@example.com',
+          joinDate: new Date(),
+        } as any,
       ];
 
       const { container } = render(<CommonTable data={incompleteData} columns={defaultColumns} />);
@@ -437,7 +472,7 @@ describe('CommonTable', () => {
 
     it('applies custom className', () => {
       const { container } = render(
-        <CommonTable data={mockData} columns={defaultColumns} className="custom-class" />
+        <CommonTable data={mockData} columns={defaultColumns} className="custom-class" />,
       );
 
       const wrapper = container.firstChild as HTMLElement;
@@ -457,7 +492,7 @@ describe('CommonTable', () => {
     it('clickable rows are keyboard accessible', () => {
       const onRowClick = vi.fn();
       const { container } = render(
-        <CommonTable data={mockData} columns={defaultColumns} onRowClick={onRowClick} />
+        <CommonTable data={mockData} columns={defaultColumns} onRowClick={onRowClick} />,
       );
 
       const rows = container.querySelectorAll('tbody tr');
