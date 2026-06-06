@@ -11,3 +11,7 @@ export type {
   DropdownMultiProps,
   DropdownOption,
 } from './Dropdown.js';
+
+// CommonTable — flexible data table with sorting, selection, and custom rendering.
+export { CommonTable } from './CommonTable.js';
+export type { Column } from './CommonTable.js';

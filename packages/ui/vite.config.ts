@@ -11,7 +11,21 @@
  */
 export default {
   root: 'playground',
-  server: { port: 5174, host: true, strictPort: true },
+  server: {
+    port: 5174,
+    host: true,
+    strictPort: true,
+    watch: {
+      usePolling: true,
+      interval: 1000,
+      ignored: ['**/node_modules/**'],
+    },
+  },
+  watch: {
+    usePolling: true,
+    interval: 1000,
+    ignored: ['**/node_modules/**'],
+  },
   esbuild: { jsx: 'automatic' as const },
   plugins: [
     {
