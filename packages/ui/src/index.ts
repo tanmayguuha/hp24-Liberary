@@ -48,6 +48,13 @@ export type {
 // Interactive
 export { Tabs } from './Tabs.js';
 export type { TabsProps, TabItem } from './Tabs.js';
+export { Dropdown } from './Dropdown.js';
+export type {
+  DropdownProps,
+  DropdownSingleProps,
+  DropdownMultiProps,
+  DropdownOption,
+} from './Dropdown.js';
 export { Accordion } from './Accordion.js';
 export type { AccordionProps, AccordionItem } from './Accordion.js';
 export { Modal } from './Modal.js';
