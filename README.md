@@ -23,6 +23,12 @@ The HTTP convention to fix this is the **`Idempotency-Key`** header: the client 
 | [`@hp24/idemkit-client`](packages/client) | Universal idempotent `fetch` wrapper (key generation + persistence + retry). |
 | [`@hp24/idemkit-react`](packages/react) | `useIdempotentMutation` hook + provider. |
 
+### Also in this monorepo
+
+| Package | What it does |
+|---|---|
+| [`@hp24/ui`](packages/ui) | A separate, zero-config React UI component library (Button, Table, Modal, Toast, forms, layout…). Pass props, get accessible UI — no CSS import or Tailwind setup. Unrelated to idempotency; shares the repo. |
+
 ## Quick start (Express + browser)
 
 **Server**
