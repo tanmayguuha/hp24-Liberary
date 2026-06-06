@@ -1,6 +1,6 @@
 {
   "name": "hp24-ui",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Zero-config, prop-driven React UI components — pass props, get accessible UI. No CSS import, no Tailwind setup; works in React, Next.js, and any bundler.",
   "keywords": [
     "react",

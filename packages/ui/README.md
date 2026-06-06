@@ -30,17 +30,100 @@ export function Dashboard({ charges }) {
 
 No provider required. Wrap with `<ThemeProvider>` only if you want to customize colors/spacing.
 
-## Components
+---
 
-**Layout** — `Stack`, `Inline`, `Grid`, `Center`, `Container`, `Divider`, `Spacer`
-**Typography** — `Text`, `Heading`, `Code`
-**Actions** — `Button`, `IconButton`, `ButtonGroup`, `Badge`, `Tag`, `Avatar`, `AvatarGroup`
-**Feedback** — `Alert`, `Spinner`, `Progress`, `Skeleton`, `EmptyState`
-**Surfaces & data** — `Card` (+ `CardHeader`/`CardFooter`), `Stat`, `List`, `Table` (sortable, data-driven)
-**Forms** — `Input`, `Textarea`, `Select`, `Dropdown` (single/multi-select, searchable), `Checkbox`, `Radio`, `Switch`, `FormField`
-**Interactive** — `Tabs`, `Accordion`, `Modal`, `Tooltip`, `Pagination`, `Breadcrumbs`, `Toast` (`ToastProvider` + `useToast`)
+## Component catalog
 
-All components are TypeScript-typed, forward refs where it makes sense, accept `style`/`className` and pass through native DOM props.
+Every component is TypeScript-typed, forwards refs where it makes sense, accepts `style`/`className`, and passes through native DOM props.
+
+### Theme
+
+| Export | What it does | Key props |
+| --- | --- | --- |
+| `ThemeProvider` | Optional — overrides theme tokens for the tree (deep-merged onto defaults). | `theme`, `children` |
+| `useTheme()` | Hook returning the active theme. | — |
+| `defaultTheme` | The built-in light theme object. | — |
+
+### Layout
+
+| Component | What it does | Key props |
+| --- | --- | --- |
+| `Stack` | Vertical flex with consistent spacing. | `gap` (4px units, default 3), `align`, `justify`, `wrap` |
+| `Inline` | Horizontal flex with consistent spacing. | `gap` (default 2), `align`, `justify`, `wrap` |
+| `Grid` | CSS grid. | `columns` (number \| template string, default 2), `gap` |
+| `Center` | Centers children on both axes. | — |
+| `Container` | Centered, width-capped page container. | `maxWidth` (default 1100), `padded` |
+| `Divider` | Thin separating rule, optionally labeled. | `orientation`, `label` |
+| `Spacer` | Fixed or flexible empty space. | `size` (omit to grow & fill) |
+
+### Typography
+
+| Component | What it does | Key props |
+| --- | --- | --- |
+| `Text` | Body text. | `as`, `size` (xs/sm/md/lg), `weight`, `tone`, `align`, `truncate` |
+| `Heading` | Section heading h1–h6 on a type scale. | `level` (1–6) |
+| `Code` | Inline monospace code. | — |
+
+### Actions
+
+| Component | What it does | Key props |
+| --- | --- | --- |
+| `Button` | Primary action. | `intent`, `variant` (solid/soft/outline/ghost/link), `size`, `loading`, `fullWidth`, `leftIcon`, `rightIcon` |
+| `IconButton` | Square, icon-only button. | requires `aria-label` (+ all `Button` props) |
+| `ButtonGroup` | Attaches buttons into one segment. | — |
+| `Badge` | Compact status label. | `intent`, `variant` (solid/soft/outline), `dot`, `pill` |
+| `Tag` | A removable `Badge`. | `onRemove` |
+| `Avatar` | Image, or colored initials fallback. | `src`, `name`, `size`, `initials` |
+| `AvatarGroup` | Overlapping cluster with “+N” overflow. | `max`, `size` |
+
+### Feedback
+
+| Component | What it does | Key props |
+| --- | --- | --- |
+| `Spinner` | Indeterminate loading spinner. | `size`, `color` |
+| `Progress` | Determinate / indeterminate bar. | `value` (0–100; omit = indeterminate), `intent`, `size` |
+| `Skeleton` | Shimmering content placeholder. | `width`, `height`, `circle` |
+| `Alert` | Contextual message banner. | `intent`, `title`, `onClose`, `icon` |
+| `EmptyState` | Placeholder when there's no data. | `title`, `description`, `icon`, `action` |
+
+### Surfaces & data
+
+| Component | What it does | Key props |
+| --- | --- | --- |
+| `Card` | Surface container. | `elevation` (flat/sm/md/lg), `padded`, `interactive` |
+| `CardHeader` | Title/subtitle/action row for a card. | `title`, `subtitle`, `action` |
+| `CardFooter` | Bordered footer row for a card. | — |
+| `Stat` | KPI / metric tile. | `label`, `value`, `change`, `trend` (up/down/flat), `icon` |
+| `List` | Vertical list from an items array. | `items` (`ListItem[]`), `divided` |
+| `Table` | Sortable, data-driven table. | `columns`, `rows`, `rowKey`, `onRowClick`, `loading`, `empty`, `striped`, `stickyHeader` |
+
+### Forms
+
+| Component | What it does | Key props |
+| --- | --- | --- |
+| `Input` | Text input with focus ring & validation. | `size`, `invalid`, `leftIcon`, `rightIcon` |
+| `Textarea` | Multi-line text input. | `invalid`, `rows` |
+| `Select` | Native select from an options array. | `options`, `placeholder`, `size`, `invalid` |
+| `Dropdown` | **Single / multi-select** with search. | `options`, `multiple`, `searchable`, `clearable`, `value`/`defaultValue`, `onChange`, `placeholder`, `size`, `invalid`, `disabled` |
+| `Checkbox` | Checkbox with inline label. | `label` |
+| `Radio` | Radio button with inline label. | `label` |
+| `Switch` | Toggle switch. | `label`, `checked`/`defaultChecked` |
+| `FormField` | Wraps a control with label/hint/error, wired via `htmlFor`/`aria-describedby`. | `label`, `required`, `hint`, `error` |
+
+### Interactive
+
+| Component | What it does | Key props |
+| --- | --- | --- |
+| `Tabs` | Tabbed panels from an items array. | `items` (`TabItem[]`), `value`/`defaultValue`, `onChange`, `variant` (underline/pill) |
+| `Accordion` | Collapsible panels from an items array. | `items` (`AccordionItem[]`), `multiple`, `defaultOpen` |
+| `Modal` | Accessible dialog rendered in a portal. | `open`, `onClose`, `title`, `footer`, `width`, `closeOnBackdrop`, `closeOnEsc` |
+| `Tooltip` | Hover/focus tooltip around a child. | `label`, `placement` (top/bottom/left/right) |
+| `Pagination` | Prev/next with truncated page numbers. | `page`, `pageCount`, `onChange`, `siblings` |
+| `Breadcrumbs` | Breadcrumb trail. | `items` (`Crumb[]`), `separator` |
+| `ToastProvider` | Mount once near the root; provides the toast API. | `position` |
+| `useToast()` | Returns `{ toast, dismiss }`. | — |
+
+---
 
 ## Data-driven by design
 
@@ -55,8 +138,12 @@ The components you'll reach for most just take data and render it:
 
 // Tabs / Accordion from items
 <Tabs items={[{ id: 'a', label: 'Overview', content: <Overview /> }]} />
+```
 
-// Single-select dropdown
+## Dropdown (single & multi-select)
+
+```tsx
+// Single-select
 <Dropdown
   options={[{ label: 'Red', value: 'r' }, { label: 'Blue', value: 'b' }]}
   placeholder="Pick a color"
@@ -73,9 +160,7 @@ The components you'll reach for most just take data and render it:
 />
 ```
 
-The `Dropdown` is controlled or uncontrolled, supports keyboard navigation
-(↑/↓/Enter/Esc), disabled options, and closes on outside click. Single mode
-calls `onChange` with the value (or `null`); multi mode with an array.
+Controlled or uncontrolled, keyboard navigation (↑/↓/Enter/Esc), disabled options, removable chips in multi mode, and closes on outside click. Single mode calls `onChange` with the value (or `null`); multi mode with an array. Use `keywords` on an option to make search match a node label. Pairs with `FormField` for labels/validation.
 
 ## Theming
 
